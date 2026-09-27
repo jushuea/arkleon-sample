@@ -1,0 +1,49 @@
+{
+  "files": [
+    {
+      "path": "CITATION.cff",
+      "bytes": 2313
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 18659
+    },
+    {
+      "path": "README.md",
+      "bytes": 9340
+    },
+    {
+      "path": "facts.csv.gz",
+      "bytes": 17962780
+    },
+    {
+      "path": "facts.parquet",
+      "bytes": 23017443
+    },
+    {
+      "path": "field_dictionary.md",
+      "bytes": 6054
+    },
+    {
+      "path": "generate.py",
+      "bytes": 28761
+    },
+    {
+      "path": "quickstart.ipynb",
+      "bytes": 8404
+    },
+    {
+      "path": "revisions.csv.gz",
+      "bytes": 202416
+    },
+    {
+      "path": "revisions.parquet",
+      "bytes": 349348
+    },
+    {
+      "path": "snapshot.json",
+      "bytes": 9501
+    }
+  ],
+  "colabUrl": "https://colab.research.google.com/github/jushuea/arkleon-sample/blob/main/quickstart.ipynb"
+}

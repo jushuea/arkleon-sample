@@ -1,0 +1,329 @@
+{
+  "snapshot_id": "sample-dataset-1/20260927T043424Z",
+  "extraction_time_utc": "2026-09-27T04:34:24Z",
+  "source_tables": [
+    "edgar_fsds_submissions",
+    "edgar_fsds_facts",
+    "edgar_fsds_revision_events"
+  ],
+  "selection_rule": "  Assets                      consolidated (segments = '' and coreg = ''),\n                              non-null, instantaneous (qtrs = 0), USD,\n                              us-gaap taxonomy (version starts 'us-gaap'),\n                              tag = 'Assets'\n  latest reported Assets      the CIK's latest such row ordered by filing date,\n                              then period_end, then accession_id, then taxonomy\n                              version, all descending\n  activity                    the CIK's latest stored submission filed date:\n                              on or after 2024-01-01 active, before it inactive\n  eligible                    at least one edgar_fsds_revision_events row\n  groups                      eligible active CIKs ordered by Assets ascending,\n                              then CIK ascending: the first 20 and the last 20\n                              (at least 40 required); the first 10 eligible\n                              inactive CIKs by CIK ascending; 50 distinct CIKs\n                              or the run fails without relaxing the criteria",
+  "upstream_corpus_version_identifier": null,
+  "upstream_corpus_version_note": "No upstream corpus-version identifier exists.",
+  "query_parameter_sets": {
+    "selection": {
+      "submissions_first": {
+        "table": "edgar_fsds_submissions",
+        "params": {
+          "select": "adsh,cik,name,form,filed,period,fy,fp",
+          "order": "adsh.asc",
+          "limit": 1000
+        }
+      },
+      "submissions_next": {
+        "table": "edgar_fsds_submissions",
+        "params": {
+          "select": "adsh,cik,name,form,filed,period,fy,fp",
+          "order": "adsh.asc",
+          "limit": 1000,
+          "adsh": "${after_accession_filter}"
+        }
+      },
+      "assets": {
+        "table": "edgar_fsds_facts",
+        "params": {
+          "select": "adsh,tag,version,ddate,qtrs,uom,segments,coreg,value",
+          "adsh": "${accession_list_filter}",
+          "tag": "eq.Assets",
+          "uom": "eq.USD",
+          "qtrs": "eq.0",
+          "segments": "eq.",
+          "coreg": "eq.",
+          "limit": 1000
+        }
+      },
+      "revision_eligibility": {
+        "table": "edgar_fsds_revision_events",
+        "params": {
+          "select": "cik",
+          "cik": "${cik_filter}",
+          "limit": 1
+        }
+      }
+    },
+    "extraction": {
+      "facts": {
+        "table": "edgar_fsds_facts",
+        "params": {
+          "select": "adsh,tag,version,ddate,qtrs,uom,segments,coreg,value",
+          "adsh": "${accession_filter}",
+          "order": "adsh.asc,tag.asc,version.asc,ddate.asc,qtrs.asc,uom.asc,segments.asc,coreg.asc",
+          "limit": 1000,
+          "offset": "${offset}"
+        }
+      },
+      "revisions": {
+        "table": "edgar_fsds_revision_events",
+        "params": {
+          "select": "cik,tag,ddate,qtrs,uom,seq,adsh,form,filed,value,prior_adsh,event_type",
+          "cik": "${cik_filter}",
+          "order": "cik.asc,tag.asc,ddate.asc,qtrs.asc,uom.asc,adsh.asc",
+          "limit": 1000,
+          "offset": "${offset}"
+        }
+      },
+      "submissions_first": {
+        "table": "edgar_fsds_submissions",
+        "params": {
+          "select": "adsh,cik,name,form,filed,period,fy,fp",
+          "order": "adsh.asc",
+          "limit": 1000
+        }
+      },
+      "submissions_next": {
+        "table": "edgar_fsds_submissions",
+        "params": {
+          "select": "adsh,cik,name,form,filed,period,fy,fp",
+          "order": "adsh.asc",
+          "limit": 1000,
+          "adsh": "${after_accession_filter}"
+        }
+      }
+    }
+  },
+  "query_parameter_sets_sha256": {
+    "selection": "626222fbfc008a505d42b0a7bc93f70d680b8068ba2888640acd7b2349ac153a",
+    "extraction": "e02e0a61c81f89a9c7a6382fe0b562ed640bb4bd803dcd3647df110b01a2cf0c"
+  },
+  "query_hash_scope": "Canonical JSON of the table names and exact query parameter templates used by this script, not a historical log of concrete requests. UTF-8, sorted object keys, compact separators, no trailing newline. Dynamic bindings: after_accession_filter = gt.<last adsh>; accession_list_filter = in.(double-quoted sorted accession batch); accession_filter = eq.<accession> for FACT_BATCH=1; cik_filter = eq.<integer CIK>; offset = integer multiples of PAGE. The first page of each extraction batch requests Prefer: count=exact. Submissions scans use keyset pagination; extraction uses offset pages.",
+  "columns_note": "CSV columns report the corresponding Parquet Arrow types; CSV stores text.",
+  "data_files": {
+    "facts.parquet": {
+      "rows": 1548791,
+      "columns": [
+        {
+          "name": "accession_id",
+          "type": "string"
+        },
+        {
+          "name": "tag",
+          "type": "string"
+        },
+        {
+          "name": "taxonomy",
+          "type": "string"
+        },
+        {
+          "name": "period_end",
+          "type": "date32[day]"
+        },
+        {
+          "name": "duration_quarters",
+          "type": "int32"
+        },
+        {
+          "name": "unit",
+          "type": "string"
+        },
+        {
+          "name": "segments",
+          "type": "string"
+        },
+        {
+          "name": "coreg",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "double"
+        },
+        {
+          "name": "form",
+          "type": "string"
+        },
+        {
+          "name": "filed",
+          "type": "date32[day]"
+        },
+        {
+          "name": "cik",
+          "type": "int64"
+        },
+        {
+          "name": "source_url",
+          "type": "string"
+        }
+      ],
+      "bytes": 23017443,
+      "sha256": "f152aa9aae118a2d1cf12abbd3613c970c8ef4f2f5d88e66a8bf8eea42d7a3db"
+    },
+    "facts.csv.gz": {
+      "rows": 1548791,
+      "columns": [
+        {
+          "name": "accession_id",
+          "type": "string"
+        },
+        {
+          "name": "tag",
+          "type": "string"
+        },
+        {
+          "name": "taxonomy",
+          "type": "string"
+        },
+        {
+          "name": "period_end",
+          "type": "date32[day]"
+        },
+        {
+          "name": "duration_quarters",
+          "type": "int32"
+        },
+        {
+          "name": "unit",
+          "type": "string"
+        },
+        {
+          "name": "segments",
+          "type": "string"
+        },
+        {
+          "name": "coreg",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "double"
+        },
+        {
+          "name": "form",
+          "type": "string"
+        },
+        {
+          "name": "filed",
+          "type": "date32[day]"
+        },
+        {
+          "name": "cik",
+          "type": "int64"
+        },
+        {
+          "name": "source_url",
+          "type": "string"
+        }
+      ],
+      "bytes": 17962780,
+      "sha256": "3947baa8ceeb74dc6aee9cd78c44eec3c2a282f3c80251a7425c4a8215235aea"
+    },
+    "revisions.parquet": {
+      "rows": 15539,
+      "columns": [
+        {
+          "name": "cik",
+          "type": "int64"
+        },
+        {
+          "name": "tag",
+          "type": "string"
+        },
+        {
+          "name": "period_end",
+          "type": "date32[day]"
+        },
+        {
+          "name": "duration_quarters",
+          "type": "int32"
+        },
+        {
+          "name": "unit",
+          "type": "string"
+        },
+        {
+          "name": "val",
+          "type": "double"
+        },
+        {
+          "name": "filed",
+          "type": "date32[day]"
+        },
+        {
+          "name": "accession_id",
+          "type": "string"
+        },
+        {
+          "name": "form",
+          "type": "string"
+        },
+        {
+          "name": "event_type",
+          "type": "string"
+        },
+        {
+          "name": "supersedes_accn",
+          "type": "string"
+        },
+        {
+          "name": "superseded_by_accn",
+          "type": "string"
+        }
+      ],
+      "bytes": 349348,
+      "sha256": "caef76bae05db67b61277668c30a64747f0ca5e5b96c996ff365925dd5502819"
+    },
+    "revisions.csv.gz": {
+      "rows": 15539,
+      "columns": [
+        {
+          "name": "cik",
+          "type": "int64"
+        },
+        {
+          "name": "tag",
+          "type": "string"
+        },
+        {
+          "name": "period_end",
+          "type": "date32[day]"
+        },
+        {
+          "name": "duration_quarters",
+          "type": "int32"
+        },
+        {
+          "name": "unit",
+          "type": "string"
+        },
+        {
+          "name": "val",
+          "type": "double"
+        },
+        {
+          "name": "filed",
+          "type": "date32[day]"
+        },
+        {
+          "name": "accession_id",
+          "type": "string"
+        },
+        {
+          "name": "form",
+          "type": "string"
+        },
+        {
+          "name": "event_type",
+          "type": "string"
+        },
+        {
+          "name": "supersedes_accn",
+          "type": "string"
+        },
+        {
+          "name": "superseded_by_accn",
+          "type": "string"
+        }
+      ],
+      "bytes": 202416,
+      "sha256": "d6de64ae45e50fb644a836f73ce0300d0b760dfddf7173f97195a1cd323b6573"
+    }
+  }
+}

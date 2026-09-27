@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+type: dataset
+message: "Please cite this dataset as shown below."
+title: "Arklēon sample dataset: SEC Financial Statement Data Sets facts and revision events for 50 companies"
+authors:
+  - name: "Arklēon"
+    website: "https://arkleon.com"
+version: "sample-dataset-1/20260927T043424Z"
+date-released: 2026-09-27
+license: CC-BY-4.0
+repository: "https://github.com/jushuea/arkleon-sample"
+url: "https://github.com/jushuea/arkleon-sample"
+abstract: >-
+  These files contain facts and revision events for 50 selected CIKs from the
+  edgar_fsds_submissions, edgar_fsds_facts, and edgar_fsds_revision_events tables.
+  The snapshot id is sample-dataset-1/20260927T043424Z, and the extraction time
+  is 2026-09-27T04:34:24Z. No upstream corpus-version identifier was established,
+  so the snapshot id identifies these files. The facts.parquet file contains
+  1548791 rows, facts.csv.gz contains 1548791 rows, revisions.parquet contains
+  15539 rows, and revisions.csv.gz contains 15539 rows. The selection rule and
+  query parameter templates are recorded in snapshot.json.
+identifiers:
+  - type: other
+    value: "sha256:f152aa9aae118a2d1cf12abbd3613c970c8ef4f2f5d88e66a8bf8eea42d7a3db"
+    description: "facts.parquet (1548791 rows, 23017443 bytes)"
+  - type: other
+    value: "sha256:3947baa8ceeb74dc6aee9cd78c44eec3c2a282f3c80251a7425c4a8215235aea"
+    description: "facts.csv.gz (1548791 rows, 17962780 bytes)"
+  - type: other
+    value: "sha256:caef76bae05db67b61277668c30a64747f0ca5e5b96c996ff365925dd5502819"
+    description: "revisions.parquet (15539 rows, 349348 bytes)"
+  - type: other
+    value: "sha256:d6de64ae45e50fb644a836f73ce0300d0b760dfddf7173f97195a1cd323b6573"
+    description: "revisions.csv.gz (15539 rows, 202416 bytes)"
+  - type: other
+    value: "sha256:626222fbfc008a505d42b0a7bc93f70d680b8068ba2888640acd7b2349ac153a"
+    description: "Selection query parameter template digest recorded in snapshot.json (query_parameter_sets_sha256.selection)"
+  - type: other
+    value: "sha256:e02e0a61c81f89a9c7a6382fe0b562ed640bb4bd803dcd3647df110b01a2cf0c"
+    description: "Extraction query parameter template digest recorded in snapshot.json (query_parameter_sets_sha256.extraction)"
+keywords:
+  - SEC
+  - XBRL
+  - financial statements
+  - point-in-time
+  - restatements
+  - sample
