@@ -158,9 +158,17 @@ Three further options select a narrower job. They are mutually exclusive, so pas
 
 `quickstart.ipynb` loads both Parquet files, selects one CITIGROUP INC series, compares its first filed value with a later reported value, applies the as_of rule locally at two dates, and shows the matching revision events.
 
+## Edition and checksums
+
+Edition: 2026.09 (extraction snapshot sample-dataset-1/20260927T043424Z).
+
+```shell
+sha256sum -c CHECKSUMS.sha256
+```
+
 ## Citation
 
-`CITATION.cff` gives the citation. Cite the snapshot id `sample-dataset-1/20260927T043424Z` as the version.
+CITATION.cff gives the citation for this dataset. Cite edition 2026.09, which is the version recorded in CITATION.cff, where the snapshot id sample-dataset-1/20260927T043424Z is kept as an identifier. This release is intended for archiving on Zenodo. If Zenodo archives it, Zenodo will assign a DOI, and the DOI will be listed here once issued. Until then, cite the edition through CITATION.cff. The dataset is licensed under CC BY 4.0, so reuse requires attribution.
 
 ## License
 

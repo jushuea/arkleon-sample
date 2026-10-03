@@ -1,8 +1,16 @@
 {
   "files": [
     {
+      "path": ".zenodo.json",
+      "bytes": 1169
+    },
+    {
+      "path": "CHECKSUMS.sha256",
+      "bytes": 326
+    },
+    {
       "path": "CITATION.cff",
-      "bytes": 2313
+      "bytes": 2418
     },
     {
       "path": "LICENSE",
@@ -10,7 +18,11 @@
     },
     {
       "path": "README.md",
-      "bytes": 9340
+      "bytes": 9845
+    },
+    {
+      "path": "datacite.json",
+      "bytes": 1809
     },
     {
       "path": "facts.csv.gz",
