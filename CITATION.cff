@@ -5,8 +5,8 @@ title: "Arklēon sample dataset: SEC Financial Statement Data Sets facts and rev
 authors:
   - name: "Arklēon"
     website: "https://arkleon.com"
-version: "sample-dataset-1/20260927T043424Z"
-date-released: 2026-09-27
+version: "2026.09"
+date-released: 2026-10-03
 license: CC-BY-4.0
 repository: "https://github.com/jushuea/arkleon-sample"
 url: "https://github.com/jushuea/arkleon-sample"
@@ -38,6 +38,9 @@ identifiers:
   - type: other
     value: "sha256:e02e0a61c81f89a9c7a6382fe0b562ed640bb4bd803dcd3647df110b01a2cf0c"
     description: "Extraction query parameter template digest recorded in snapshot.json (query_parameter_sets_sha256.extraction)"
+  - type: other
+    value: "sample-dataset-1/20260927T043424Z"
+    description: "Extraction snapshot id recorded in snapshot.json"
 keywords:
   - SEC
   - XBRL

@@ -1,4 +1,5 @@
 # Arklēon sample dataset
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23129100.svg)](https://doi.org/10.5281/zenodo.23129100)
 
 This repository is a sample export from the Arklēon data layer: SEC Financial Statement Data Sets facts and revision events for 50 selected companies, published under CC BY 4.0.
 
@@ -158,9 +159,17 @@ Three further options select a narrower job. They are mutually exclusive, so pas
 
 `quickstart.ipynb` loads both Parquet files, selects one CITIGROUP INC series, compares its first filed value with a later reported value, applies the as_of rule locally at two dates, and shows the matching revision events.
 
+## Edition and checksums
+
+Edition: 2026.09 (extraction snapshot sample-dataset-1/20260927T043424Z).
+
+```shell
+sha256sum -c CHECKSUMS.sha256
+```
+
 ## Citation
 
-`CITATION.cff` gives the citation. Cite the snapshot id `sample-dataset-1/20260927T043424Z` as the version.
+CITATION.cff gives the citation for this dataset. Cite edition 2026.09, which is the version recorded in CITATION.cff, where the snapshot id sample-dataset-1/20260927T043424Z is kept as an identifier. Edition 2026.09 is archived on Zenodo with DOI 10.5281/zenodo.23129100 (https://doi.org/10.5281/zenodo.23129100). The concept DOI 10.5281/zenodo.23129099 (https://doi.org/10.5281/zenodo.23129099) always resolves to the latest edition. The dataset is licensed under CC BY 4.0, so reuse requires attribution.
 
 ## License
 

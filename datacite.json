@@ -1,0 +1,65 @@
+{
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "creators": [
+    {
+      "name": "Arklēon",
+      "nameType": "Organizational"
+    }
+  ],
+  "titles": [
+    {
+      "title": "Arklēon sample dataset: SEC Financial Statement Data Sets facts and revision events for 50 companies"
+    }
+  ],
+  "publisher": "Arklēon",
+  "publicationYear": 2026,
+  "version": "2026.09",
+  "rightsList": [
+    {
+      "rights": "CC BY 4.0",
+      "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "rightsIdentifier": "cc-by-4.0"
+    }
+  ],
+  "descriptions": [
+    {
+      "description": "These files contain facts and revision events for 50 selected CIKs from the edgar_fsds_submissions, edgar_fsds_facts, and edgar_fsds_revision_events tables. The snapshot id is sample-dataset-1/20260927T043424Z, and the extraction time is 2026-09-27T04:34:24Z. No upstream corpus-version identifier was established, so the snapshot id identifies these files. The facts.parquet file contains 1548791 rows, facts.csv.gz contains 1548791 rows, revisions.parquet contains 15539 rows, and revisions.csv.gz contains 15539 rows. The selection rule and query parameter templates are recorded in snapshot.json.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "SEC"
+    },
+    {
+      "subject": "XBRL"
+    },
+    {
+      "subject": "financial statements"
+    },
+    {
+      "subject": "point-in-time"
+    },
+    {
+      "subject": "restatements"
+    },
+    {
+      "subject": "sample"
+    }
+  ],
+  "relatedIdentifiers": [
+    {
+      "relatedIdentifier": "https://github.com/jushuea/arkleon-sample",
+      "relatedIdentifierType": "URL",
+      "relationType": "IsSupplementTo"
+    }
+  ],
+  "dates": [
+    {
+      "date": "2026-10-03",
+      "dateType": "Issued"
+    }
+  ]
+}
