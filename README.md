@@ -1,4 +1,5 @@
 # Arklēon sample dataset
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23129100.svg)](https://doi.org/10.5281/zenodo.23129100)
 
 This repository is a sample export from the Arklēon data layer: SEC Financial Statement Data Sets facts and revision events for 50 selected companies, published under CC BY 4.0.
 
@@ -168,7 +169,7 @@ sha256sum -c CHECKSUMS.sha256
 
 ## Citation
 
-CITATION.cff gives the citation for this dataset. Cite edition 2026.09, which is the version recorded in CITATION.cff, where the snapshot id sample-dataset-1/20260927T043424Z is kept as an identifier. This release is intended for archiving on Zenodo. If Zenodo archives it, Zenodo will assign a DOI, and the DOI will be listed here once issued. Until then, cite the edition through CITATION.cff. The dataset is licensed under CC BY 4.0, so reuse requires attribution.
+CITATION.cff gives the citation for this dataset. Cite edition 2026.09, which is the version recorded in CITATION.cff, where the snapshot id sample-dataset-1/20260927T043424Z is kept as an identifier. Edition 2026.09 is archived on Zenodo with DOI 10.5281/zenodo.23129100 (https://doi.org/10.5281/zenodo.23129100). The concept DOI 10.5281/zenodo.23129099 (https://doi.org/10.5281/zenodo.23129099) always resolves to the latest edition. The dataset is licensed under CC BY 4.0, so reuse requires attribution.
 
 ## License
 
